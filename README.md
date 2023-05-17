@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+### 个人博客后台管理系统
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### 项目介绍
 
-## Available Scripts
+本项目基于cra脚手架搭建，使用craco添加webpack配置，使用`react suite`作为UI框架，使用`react-router-dom`作为路由，使用`redux/zustand(还在选型中，待定)`作为状态管理，使用`axios`作为请求库
 
-In the project directory, you can run:
+#### 项目运行
 
-### `npm start`
+```bash
+# 安装依赖
+npm install
+# 启动项目
+npm start
+# 打包项目
+npm run build
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### 个人提交规范
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Type     | 作用                                                         |
+| -------- | ------------------------------------------------------------ |
+| feat     | 新增特性 (feature)                                           |
+| fix      | 修复 Bug(bug fix)                                            |
+| docs     | 修改文档 (documentation)                                     |
+| style    | 代码格式修改(white-space, formatting, missing semi colons, etc) |
+| refactor | 代码重构(refactor)                                           |
+| perf     | 改善性能(A code change that improves performance)            |
+| test     | 测试(when adding missing tests)                              |
+| build    | 变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等） |
+| ci       | 更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis, Circle 等 |
+| chore    | 变更构建流程或辅助工具(比如更改测试环境)                     |
+| revert   | 代码回退                                                     |
