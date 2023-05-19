@@ -38,6 +38,12 @@ export const useMenuStore = create<IMenuState>()((set) => ({
           path: '/home/article/articleList',
           name: '文章列表',
           routeName: 'articleList'
+        },
+        {
+          id: '3-2',
+          path: '/home/article/newArticle',
+          name: '新建文章',
+          routeName: 'newArticle'
         }
       ]
     }

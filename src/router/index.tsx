@@ -8,6 +8,7 @@ const Dashboard = lazy(() => import('@/views/dashboard'))
 const Users = lazy(() => import('@/views/users'))
 const Article = lazy(() => import('@/views/article'))
 const ArticleList = lazy(() => import('@/views/article/c-views/articleList'))
+const NewArticle = lazy(() => import('@/views/article/c-views/newArticle'))
 
 const routes: RouteObject[] = [
   {
@@ -45,6 +46,10 @@ const routes: RouteObject[] = [
           {
             path: '/home/article/articleList',
             element: <ArticleList />
+          },
+          {
+            path: '/home/article/newArticle',
+            element: <NewArticle />
           }
         ]
       }

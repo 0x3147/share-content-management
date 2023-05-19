@@ -20,7 +20,7 @@ const BasicLayout: FC<IProps> = () => {
         <Sidebar>
           <NavSidebar />
         </Sidebar>
-        <Content className="ml-2 p-2">
+        <Content className="p-6">
           <Outlet />
         </Content>
       </Container>
