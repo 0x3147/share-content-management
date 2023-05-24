@@ -11,12 +11,10 @@ class MyRequest {
 
     // 全局拦截器
     this.instance.interceptors.request.use((config: AxiosRequestConfig) => {
-      console.log('请求的拦截')
       // ...
       return config
     })
     this.instance.interceptors.response.use((res: AxiosResponse) => {
-      console.log('响应的拦截')
       // ...
       return res
     })

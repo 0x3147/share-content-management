@@ -11,14 +11,31 @@ interface IProps {
 
 const ArticleList: FC<IProps> = () => {
   const articleListStore = useArticleListStore()
+  const page = articleListStore.page
+  const pageSize = articleListStore.pageSize
+  const changePage = articleListStore.changePage
+  const changePageSize = articleListStore.changePageSize
+  const data = articleListStore.articleList
+  const articleCount = articleListStore.articleCount
 
   useAsyncEffect(async () => {
-    await articleListStore.queryArticleList()
+    await articleListStore.queryArticleList(page, pageSize)
+  }, [page, pageSize])
+
+  useAsyncEffect(async () => {
+    await articleListStore.queryArticleListCount()
   }, [])
 
   return (
     <div>
-      <ArticleTable />
+      <ArticleTable
+        page={page}
+        pageSize={pageSize}
+        changePage={changePage}
+        changePageSize={changePageSize}
+        tableData={data}
+        dataCount={articleCount}
+      />
     </div>
   )
 }
