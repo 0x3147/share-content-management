@@ -12,3 +12,7 @@ export const getArticleList = async (page: number, pageSize: number) => {
 export const getArticleListCount = async () => {
   return await MyRequest.get<IDefaultRes<number>>('/article/list/count')
 }
+
+export const deleteArticle = async (id: number) => {
+  return await MyRequest.post<IDefaultRes<null>>('/article/delete', { id })
+}

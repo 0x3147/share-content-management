@@ -2,7 +2,6 @@ import { create } from 'zustand'
 import { getArticleList, getArticleListCount } from '@/service/queryArticleList'
 
 import type { IArticle } from '@/types/ArticleList'
-import React from 'react'
 
 interface IArticleListState {
   articleList: IArticle[]
@@ -24,10 +23,11 @@ export const useArticleListStore = create<IArticleListState>((set) => ({
   changePageSize: (pageSize: number) => set({ pageSize }),
   queryArticleList: async (page: number, pageSize: number) => {
     const res = await getArticleList(page, pageSize)
-    await set({ articleList: res.data })
+    const tableData = res.data as IArticle[]
+    set((state) => ({ articleList: [...state.articleList, ...tableData] }))
   },
   queryArticleListCount: async () => {
     const res = await getArticleListCount()
-    await set({ articleCount: res.data })
+    set({ articleCount: res.data })
   }
 }))

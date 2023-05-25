@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import React, { memo } from 'react'
 import useAsyncEffect from '@/hooks/useAsyncEffect'
 import { useArticleListStore } from '@/store/articleListStore'
 import ArticleTable from '@/views/article/c-views/articleList/articleTable'
@@ -10,21 +10,26 @@ interface IProps {
 }
 
 const ArticleList: FC<IProps> = () => {
-  const articleListStore = useArticleListStore()
-  const page = articleListStore.page
-  const pageSize = articleListStore.pageSize
-  const changePage = articleListStore.changePage
-  const changePageSize = articleListStore.changePageSize
-  const data = articleListStore.articleList
-  const articleCount = articleListStore.articleCount
+  const page = useArticleListStore((state) => state.page)
+  const pageSize = useArticleListStore((state) => state.pageSize)
+  const changePage = useArticleListStore((state) => state.changePage)
+  const changePageSize = useArticleListStore((state) => state.changePageSize)
+  const data = useArticleListStore((state) => state.articleList)
+  const articleCount = useArticleListStore((state) => state.articleCount)
+  const queryArticleList = useArticleListStore(
+    (state) => state.queryArticleList
+  )
+  const queryArticleListCount = useArticleListStore(
+    (state) => state.queryArticleListCount
+  )
 
   useAsyncEffect(async () => {
-    await articleListStore.queryArticleList(page, pageSize)
-  }, [page, pageSize])
+    await queryArticleList(page, pageSize)
+  }, [page, pageSize, articleCount])
 
   useAsyncEffect(async () => {
-    await articleListStore.queryArticleListCount()
-  }, [])
+    await queryArticleListCount()
+  }, [data])
 
   return (
     <div>
