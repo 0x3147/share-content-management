@@ -9,19 +9,43 @@ interface IProps {
   children?: ReactNode
 }
 
+/**
+ * @desc 文章列表页
+ * @Author bk0x114
+ * @Date 2023-06-26 16:28:11
+ */
 const ArticleList: FC<IProps> = () => {
-  const page = useArticleListStore((state) => state.page)
-  const pageSize = useArticleListStore((state) => state.pageSize)
-  const changePage = useArticleListStore((state) => state.changePage)
-  const changePageSize = useArticleListStore((state) => state.changePageSize)
-  const data = useArticleListStore((state) => state.articleList)
-  const articleCount = useArticleListStore((state) => state.articleCount)
-  const queryArticleList = useArticleListStore(
-    (state) => state.queryArticleList
-  )
-  const queryArticleListCount = useArticleListStore(
-    (state) => state.queryArticleListCount
-  )
+  const {
+    articleList,
+    articleCount,
+    page,
+    pageSize,
+    changePage,
+    changePageSize,
+    queryArticleList,
+    queryArticleListCount
+  } = useArticleListStore((state) => ({
+    articleList: state.articleList,
+    articleCount: state.articleCount,
+    page: state.page,
+    pageSize: state.pageSize,
+    changePage: state.changePage,
+    changePageSize: state.changePageSize,
+    queryArticleList: state.queryArticleList,
+    queryArticleListCount: state.queryArticleListCount
+  }))
+  // const page = useArticleListStore((state) => state.page)
+  // const pageSize = useArticleListStore((state) => state.pageSize)
+  // const changePage = useArticleListStore((state) => state.changePage)
+  // const changePageSize = useArticleListStore((state) => state.changePageSize)
+  // const data = useArticleListStore((state) => state.articleList)
+  // const articleCount = useArticleListStore((state) => state.articleCount)
+  // const queryArticleList = useArticleListStore(
+  //   (state) => state.queryArticleList
+  // )
+  // const queryArticleListCount = useArticleListStore(
+  //   (state) => state.queryArticleListCount
+  // )
 
   useAsyncEffect(async () => {
     await queryArticleList(page, pageSize)
@@ -29,7 +53,7 @@ const ArticleList: FC<IProps> = () => {
 
   useAsyncEffect(async () => {
     await queryArticleListCount()
-  }, [data])
+  }, [articleList])
 
   return (
     <div>
@@ -38,7 +62,7 @@ const ArticleList: FC<IProps> = () => {
         pageSize={pageSize}
         changePage={changePage}
         changePageSize={changePageSize}
-        tableData={data}
+        tableData={articleList}
         dataCount={articleCount}
       />
     </div>

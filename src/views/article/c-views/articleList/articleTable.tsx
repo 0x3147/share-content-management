@@ -16,6 +16,11 @@ interface IProps {
 
 const { Column, HeaderCell, Cell, ColumnGroup } = Table
 
+/**
+ * @desc 文章列表组件
+ * @Author bk0x114
+ * @Date 2023-06-26 16:27:56
+ */
 const ArticleTable: FC<IProps> = ({
   page,
   pageSize,
@@ -30,15 +35,33 @@ const ArticleTable: FC<IProps> = ({
     return i >= start && i < end
   })
 
+  /**
+   * @desc 每页条数改变
+   * @Author bk0x114
+   * @Date 2023-06-26 16:25:15
+   * @param dataKey 每页条数
+   */
   const handleChangeLimit = (dataKey: number) => {
     changePage(1)
     changePageSize(dataKey)
   }
 
+  /**
+   * @desc 当前页改变
+   * @Author bk0x114
+   * @Date 2023-06-26 16:25:19
+   * @param dataKey 当前页
+   */
   const handlePageChange = (dataKey: number) => {
     changePage(dataKey)
   }
 
+  /**
+   * @desc 根据id删除文章
+   * @Author bk0x114
+   * @Date 2023-06-26 16:25:25
+   * @param id 文章id
+   */
   const handleDelete = (id: number) => {}
 
   return (

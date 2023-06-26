@@ -12,7 +12,7 @@ interface IProps {
 
 /**
  * @desc 侧导航栏
- * @Author 康佳星
+ * @Author bk0x114
  * @Date 2023-03-18 21:31:04
  */
 const NavSideBar: FC<IProps> = () => {
@@ -22,7 +22,7 @@ const NavSideBar: FC<IProps> = () => {
 
   /**
    * @desc 渲染路由菜单
-   * @Author 康佳星
+   * @Author bk0x114
    * @Date 2023-04-19 03:52:34
    * @param menuList 菜单列表
    */
@@ -64,7 +64,7 @@ const NavSideBar: FC<IProps> = () => {
 
   /**
    * @desc 路由跳转以及设置当前激活的菜单项
-   * @Author 康佳星
+   * @Author bk0x114
    * @Date 2023-04-19 03:53:15
    * @param eventKey 菜单项的 eventKey
    * @param routeUrl 路由地址

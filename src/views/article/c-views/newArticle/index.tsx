@@ -9,6 +9,11 @@ interface IProps {
   children?: ReactNode
 }
 
+/**
+ * @desc 新增文章页
+ * @Author bk0x114
+ * @Date 2023-06-26 16:28:43
+ */
 const NewArticle: FC<IProps> = () => {
   const [content, setContent] = useState('# Hello Editor')
   const [title, setTitle] = useState('')
@@ -17,7 +22,7 @@ const NewArticle: FC<IProps> = () => {
 
   /**
    * @desc 提交文章
-   * @Author 康佳星
+   * @Author bk0x114
    * @Date 2023-04-19 19:13:29
    */
   const handleSubmitDocument = () => {
